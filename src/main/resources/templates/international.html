@@ -1,0 +1,25 @@
+<html>
+    <head>
+        <title>Home Page</title>
+        <script src="http://code.jquery.com/jquery-latest.min.js"></script>
+        <script type="text/javascript">
+            $(document).ready(function() {
+                $("#locales").change(function () {
+                    var selectedOption = $('#locales').val();
+                    if (selectedOption != ''){
+                        window.location.replace('international?lang=' + selectedOption);
+                    }
+                });
+            });
+        </script>
+    </head>
+    <body>
+        <h1 th:text="#{greeting}"></h1>
+        <span th:text="#{lang.change}"></span>:
+        <select id="locales">
+            <option value=""></option>
+            <option value="en" th:text="#{lang.eng}"></option>
+            <option value="fr" th:text="#{lang.fr}"></option>
+        </select>
+    </body>
+</html>
